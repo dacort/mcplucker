@@ -1,0 +1,7 @@
+[
+  {"id": 1, "name": "Laptop", "category": "Electronics", "price": 999.99, "in_stock": true},
+  {"id": 2, "name": "Mouse", "category": "Electronics", "price": 25.50, "in_stock": true},
+  {"id": 3, "name": "Keyboard", "category": "Electronics", "price": 75.00, "in_stock": false},
+  {"id": 4, "name": "Monitor", "category": "Electronics", "price": 299.99, "in_stock": true},
+  {"id": 5, "name": "Desk Chair", "category": "Furniture", "price": 199.99, "in_stock": true}
+]

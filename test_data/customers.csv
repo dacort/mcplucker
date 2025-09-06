@@ -1,0 +1,6 @@
+id,name,email,city,signup_date
+1,John Doe,john@example.com,New York,2024-01-15
+2,Jane Smith,jane@example.com,Los Angeles,2024-02-20
+3,Bob Johnson,bob@example.com,Chicago,2024-03-10
+4,Alice Brown,alice@example.com,Houston,2024-04-05
+5,Charlie Davis,charlie@example.com,Phoenix,2024-05-12
