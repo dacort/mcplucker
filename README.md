@@ -15,11 +15,22 @@ go build -o mcplucker ./main.go
 ```
 
 ### Usage
-MCPlucker runs as an MCP server using stdio transport:
 
+MCPlucker runs as an MCP server using stdio transport
+
+**Adding to Claude Code:**
+
+1. Build the project:
 ```bash
-./mcplucker
+go build -o mcplucker ./main.go
 ```
+
+2. Add the MCP server to Claude Code:
+```bash
+claude mcp add duckdb ./mcplucker
+```
+
+3. Start using MCPlucker in your Claude Code sessions!
 
 ## Available Tools
 
@@ -29,13 +40,52 @@ MCPlucker runs as an MCP server using stdio transport:
 - **`describe_table`** - Get detailed schema information and sample data
 - **`execute_query`** - Execute SQL queries with configurable limits
 
-### Example Usage via MCP Client
+### Example Usage
+
+Once connected to an MCP client (like Claude Desktop), you can interact naturally:
+
+**Loading data:**
+```
+"Hello, my friend, can you create a duckdb database from test_data/products.json?"
+```
+
+**Exploring tables:**
+```
+"Can you give me a quick summary of the products table?"
+```
+
+```
+⏺ Products Table Summary:
+  - 5 total products across 2 categories (Electronics, Furniture)
+  - Price range: $25.50 - $999.99 (avg: $320.09)
+  - Stock status: 4 in stock, 1 out of stock
+  - Categories: Electronics (4 items), Furniture (1 item)
+```
+
+**Running queries:**
+```
+"Show me all electronics products that are in stock"
+```
+
+```
+⏺ Electronics Products In Stock:
+
+  | ID  | Name    | Price   |
+  |-----|---------|---------|
+  | 1   | Laptop  | $999.99 |
+  | 2   | Mouse   | $25.50  |
+  | 4   | Monitor | $299.99 |
+
+  3 electronics products are currently in stock.
+```
+
+**Technical usage via MCP protocol:**
 ```json
 {
   "tool": "create_table_from_file",
   "arguments": {
-    "table_name": "customers", 
-    "file_path": "data/customers.csv"
+    "table_name": "products", 
+    "file_path": "test_data/products.json"
   }
 }
 ```

@@ -67,10 +67,11 @@ See individual phase documents for detailed implementation plans:
 ### TODO List
 1. ✅ **Phase 1**: Set up Go module, project structure, basic MCP server
 2. ✅ **Phase 2**: Implement core tools (create_table_from_file, list_tables, describe_table, execute_query)
-3. **Phase 3**: Add cloud connectivity and Iceberg support
-4. **Phase 4**: Implement query analysis and table profiling
-5. **Phase 5**: Add database connectivity (PostgreSQL, MySQL, SQLite)
-6. **Phase 100**: Advanced features and enterprise functionality
+3. **Phase 2.5**: Add HTTP transport as alternative to stdio for web-based integrations
+4. **Phase 3**: Add cloud connectivity and Iceberg support
+5. **Phase 4**: Implement query analysis and table profiling
+6. **Phase 5**: Add database connectivity (PostgreSQL, MySQL, SQLite)
+7. **Phase 100**: Advanced features and enterprise functionality
 
 ### Completed Features
 - ✅ Basic MCP server with stdio transport
