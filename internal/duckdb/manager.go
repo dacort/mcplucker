@@ -34,7 +34,7 @@ func NewManagerWithDSN(dsn string) (*Manager, error) {
 
 	// Test the connection
 	if err := db.Ping(); err != nil {
-		db.Close()
+		_ = db.Close()
 		return nil, fmt.Errorf("failed to ping DuckDB: %w", err)
 	}
 
@@ -56,7 +56,7 @@ func (m *Manager) Close() error {
 }
 
 // Query executes a query and returns the result
-func (m *Manager) Query(query string, args ...interface{}) (*sql.Rows, error) {
+func (m *Manager) Query(query string, args ...any) (*sql.Rows, error) {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
 
@@ -68,7 +68,7 @@ func (m *Manager) Query(query string, args ...interface{}) (*sql.Rows, error) {
 }
 
 // Exec executes a query without returning rows
-func (m *Manager) Exec(query string, args ...interface{}) (sql.Result, error) {
+func (m *Manager) Exec(query string, args ...any) (sql.Result, error) {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
 

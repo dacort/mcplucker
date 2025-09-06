@@ -236,8 +236,8 @@ func (t *Tools) DescribeTable(ctx context.Context, req *mcp.CallToolRequest, inp
 	var sampleData [][]string
 	for sampleRows.Next() {
 		// Create a slice to hold the values
-		values := make([]interface{}, len(columns))
-		valuePtrs := make([]interface{}, len(columns))
+		values := make([]any, len(columns))
+		valuePtrs := make([]any, len(columns))
 		for i := range values {
 			valuePtrs[i] = &values[i]
 		}
@@ -299,8 +299,8 @@ func (t *Tools) ExecuteQuery(ctx context.Context, req *mcp.CallToolRequest, inpu
 
 	for rows.Next() && rowCount < limit {
 		// Create a slice to hold the values
-		values := make([]interface{}, len(columnNames))
-		valuePtrs := make([]interface{}, len(columnNames))
+		values := make([]any, len(columnNames))
+		valuePtrs := make([]any, len(columnNames))
 		for i := range values {
 			valuePtrs[i] = &values[i]
 		}

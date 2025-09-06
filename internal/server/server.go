@@ -43,7 +43,7 @@ func New() (*Server, error) {
 
 	// Register tools
 	if err := server.registerTools(); err != nil {
-		dbManager.Close()
+		_ = dbManager.Close()
 		return nil, fmt.Errorf("failed to register tools: %w", err)
 	}
 
